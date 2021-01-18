@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Cleanup</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <!--Authentication String-->
+    <string name="tv_login">Login</string>
+    <string name="tv_login_info">Let’s save the ocean</string>
+    <string name="til_email">Email Address</string>
+    <string name="til_pass">Password</string>
+    <string name="tv_sign_up_direction">Don’t have an account? </string>
+    <string name="tv_register">Register</string>
+    <string name="til_name">Full Name</string>
+    <string name="tv_login_direction">Already have an account? </string>
+    <string name="til_phone">Phone Number</string>
+    <string name="til_confirm_pass">Confirm Password</string>
+    <string name="btn_register">Register</string>
+    <string name="tv_info_resend">Did not get any code?</string>
+    <string name="tv_resend_code">Resend Code</string>
+    <string name="btn_send">Send</string>
+
+    <!--Message String-->
+    <string name="text_empty">Please Fill this Field</string>
+    <string name="text_email_invalid">Invalid Email Address</string>
+    <string name="text_not_match">Password Not Match</string>
+</resources>
