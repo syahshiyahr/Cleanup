@@ -75,7 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:fontFamily="@font/roboto_bold"
-            android:padding="15dp"
             app:layout_constraintTop_toBottomOf="@id/card_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,33 +86,63 @@
             android:paddingEnd="40dp"
             app:strokeColor="@color/blue_700" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_location"
-            style="@style/BlackTextInputLayoutStyle"
+        <TextView
+            android:id="@+id/tv_title_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_take_picture"
+            android:textSize="16sp"
+            android:textColor="@color/text_black"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:id="@+id/tv_desc_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This location based on your current location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_location"
+            android:textSize="12sp"
+            android:textColor="#B5B5B5"
+            android:fontFamily="@font/roboto"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:id="@+id/tv_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:hint="Location"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="@color/text_black"
-            app:errorEnabled="true"
-            app:hintTextColor="@color/text_black"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Your location"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_take_picture">
+            app:layout_constraintTop_toBottomOf="@id/tv_desc_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14sp"
+            android:textColor="@color/text_black"
+            android:fontFamily="@font/roboto"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:drawableStart="@drawable/ic_baseline_location_on_24"
+            android:drawablePadding="10dp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:textColor="@color/text_black" />
-        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_level_polution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level of Polution"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_location"
+            android:textSize="16sp"
+            android:textColor="@color/text_black"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="30dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_level_polution"
@@ -123,7 +152,6 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
-            android:hint="Level of Polution"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -133,7 +161,8 @@
             app:hintTextColor="@color/text_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/til_location">
+            app:layout_constraintTop_toBottomOf="@id/tv_level_polution"
+            app:hintEnabled="false">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/et_level_polution"
@@ -141,7 +170,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:textColor="@color/text_black"
-                android:inputType="none"/>
+                android:inputType="none"
+                android:hint="Level of Polution"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
