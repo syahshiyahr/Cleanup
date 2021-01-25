@@ -1,4 +1,4 @@
-package com.example.cleanup.ui;
+package com.example.cleanup.ui.home;
 
 import android.os.Bundle;
 

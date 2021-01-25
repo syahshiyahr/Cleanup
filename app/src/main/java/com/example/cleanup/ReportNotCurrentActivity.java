@@ -152,7 +152,7 @@ public class ReportNotCurrentActivity extends AppCompatActivity {
         Places.initialize(getApplicationContext(), getResources().getString(R.string.google_place_api));
 
         edtLocation.getEditText().setFocusable(false);
-        edtLocation.setOnClickListener(new View.OnClickListener() {
+        edtLocation.getEditText().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS, Place.Field.LAT_LNG, Place.Field.NAME);

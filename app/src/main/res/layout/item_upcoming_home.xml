@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="195dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/image_beach"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_beach_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panda Beach"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/img_upcoming"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/text_black"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="13dp"/>
+
+<ImageView
+    android:id="@+id/circle_divider"
+    android:layout_width="2dp"
+    android:layout_height="2dp"
+    app:layout_constraintStart_toEndOf="@id/tv_beach_name"
+    app:layout_constraintTop_toBottomOf="@id/img_upcoming"
+    app:layout_constraintBottom_toBottomOf="@id/tv_beach_name"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="9dp"
+    android:background="@drawable/circle_black"/>
+
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 Km"
+            android:fontFamily="@font/roboto"
+            android:textSize="12sp"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@id/circle_divider"
+            app:layout_constraintTop_toBottomOf="@id/img_upcoming"
+            app:layout_constraintBottom_toBottomOf="@id/tv_beach_name"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="31th Jan 2021 - 08:30 AM"
+            android:fontFamily="@font/roboto"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_beach_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/text_black"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    
+
+</androidx.cardview.widget.CardView>

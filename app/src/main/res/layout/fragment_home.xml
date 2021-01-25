@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -246,15 +246,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_recommendation"
+                android:id="@+id/rv_upcoming_home"
                 android:scrollbars="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_discover"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginTop="25dp"/>
+                android:paddingStart="30dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:clipToPadding="false"
+                tools:listitem="@layout/item_upcoming_home"/>
 
             <TextView
                 android:id="@+id/tv_statistic"
@@ -267,7 +269,7 @@
                 android:textColor="@color/text_black"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_recommendation" />
+                app:layout_constraintTop_toBottomOf="@id/rv_upcoming_home" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -276,9 +278,11 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_statistic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginTop="22dp">
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="30dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -397,4 +401,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
