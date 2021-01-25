@@ -32,7 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeFragment extends Fragment {
     Button btnReports, btnVisited;
     TextView seeAll;
-    CardView nearBeaches;
+    CardView nearBeaches, cleanBeaches;
     DatabaseReference ref, refUpcoming;
     UpcomingHomeAdapter adapter;
     String userId;
@@ -56,6 +56,7 @@ public class HomeFragment extends Fragment {
         btnVisited = view.findViewById(R.id.btn_visited_beach);
         nearBeaches = view.findViewById(R.id.card_near);
         seeAll = view.findViewById(R.id.tv_see_all);
+        cleanBeaches = view.findViewById(R.id.card_clean);
 
         ref = FirebaseDatabase.getInstance().getReference().child("report");
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -102,6 +103,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new NearBeachesFragment();
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
+
+            }
+        });
+
+        cleanBeaches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new CleanOrNotFragment();
                 getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
 
             }

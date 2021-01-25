@@ -3,7 +3,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <!--Authentication String-->
     <string name="tv_login">Login</string>
-    <string name="tv_login_info">Let’s save the ocean</string>
+    <string name="tv_login_info">Let’s clean the beaches</string>
     <string name="til_email">Email Address</string>
     <string name="til_pass">Password</string>
     <string name="tv_sign_up_direction">Don’t have an account? </string>
