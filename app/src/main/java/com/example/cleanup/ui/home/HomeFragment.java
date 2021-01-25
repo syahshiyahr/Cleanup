@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeFragment extends Fragment {
     Button btnReports, btnVisited;
     TextView seeAll;
+    CardView nearBeaches;
     DatabaseReference ref, refUpcoming;
     UpcomingHomeAdapter adapter;
     String userId;
@@ -52,6 +54,7 @@ public class HomeFragment extends Fragment {
 
         btnReports = view.findViewById(R.id.btn_reports);
         btnVisited = view.findViewById(R.id.btn_visited_beach);
+        nearBeaches = view.findViewById(R.id.card_near);
         seeAll = view.findViewById(R.id.tv_see_all);
 
         ref = FirebaseDatabase.getInstance().getReference().child("report");
@@ -90,6 +93,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new UpcomingFragment();
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
+
+            }
+        });
+
+        nearBeaches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new NearBeachesFragment();
                 getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
 
             }

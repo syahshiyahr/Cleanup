@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginBottom="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_near"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/image_beach"/>
+
+        <TextView
+            android:id="@+id/tv_beach_name_near"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panda Beach"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/img_near"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/text_black"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="13dp"/>
+
+        <TextView
+            android:id="@+id/tv_distance_near"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 Km"
+            android:fontFamily="@font/roboto"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_beach_name_near"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="13dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/text_black"/>
+
+        <com.google.android.material.button.MaterialButton
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/btn_learn_more"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Learn more"
+            android:textColor="@color/blue_secondary"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:cornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:strokeColor="@color/blue_secondary"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

@@ -102,7 +102,7 @@
 
             <!--row 1 column 1-->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_call"
+                android:id="@+id/card_clean"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@color/white"
@@ -139,7 +139,7 @@
 
             <!--row 2 column 1-->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_chat"
+                android:id="@+id/card_upcoming"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@color/white"
@@ -176,7 +176,7 @@
 
             <!--row 3 column 1-->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_video_call"
+                android:id="@+id/card_near"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
