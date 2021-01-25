@@ -167,7 +167,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/roboto"
-                        android:text="Upcoming"
+                        android:text="Cleanup Drives"
                         android:gravity="center"
                         android:textColor="@color/text_black"
                         android:textSize="12sp" />
