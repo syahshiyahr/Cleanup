@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+    android:layout_marginBottom="20dp"
+    >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_report_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                tools:text="Beach Name"
+                android:textColor="@color/text_black"
+                android:maxLines="1"
+                android:drawableStart="@drawable/ic_baseline_location_on_24"
+                android:drawablePadding="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_report_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                tools:text="Date"
+                android:textColor="@color/text_black"/>
+
+            <TextView
+                android:id="@+id/tv_report_total_registered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                tools:text="Total registered complaint : 20"
+                android:textColor="@color/text_black"/>
+
+
+            <TextView
+                android:id="@+id/tv_report_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_black"
+                tools:text="Status : In Progress" />
+
+        </LinearLayout>
+
+</androidx.cardview.widget.CardView>

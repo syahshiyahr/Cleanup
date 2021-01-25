@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ReportActivity">
+    tools:context=".ReportNotCurrentActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -64,27 +64,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/no_image"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"/>
 
         </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_take_picture"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:fontFamily="@font/roboto_bold"
             app:layout_constraintTop_toBottomOf="@id/card_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Take picture"
-            android:textAllCaps="false"
-            android:textSize="14sp"
-            app:cornerRadius="15dp"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            app:strokeColor="@color/blue_700" />
+            android:layout_margin="30dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_gallery"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Open gallery"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                app:strokeColor="@color/blue_secondary"
+                android:textColor="@color/blue_secondary"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_take_picture"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Take a photo"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginStart="20dp"
+                app:strokeColor="@color/blue_secondary"
+                android:textColor="@color/blue_secondary"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_title_location"
@@ -92,7 +120,7 @@
             android:layout_height="wrap_content"
             android:text="Location"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_take_picture"
+            app:layout_constraintTop_toBottomOf="@id/button"
             android:textSize="16sp"
             android:textColor="@color/text_black"
             android:fontFamily="@font/roboto_bold"
@@ -103,7 +131,7 @@
             android:id="@+id/tv_desc_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This location based on your current location"
+            android:text="Choose the location where you found the trash"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title_location"
             android:textSize="12sp"
@@ -112,23 +140,42 @@
             android:layout_marginTop="3dp"
             android:layout_marginStart="30dp"/>
 
-        <TextView
-            android:id="@+id/tv_location"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_location"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your location"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_desc_location"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="14sp"
-            android:textColor="@color/text_black"
-            android:fontFamily="@font/roboto"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
-            android:gravity="center_vertical"
-            android:drawableStart="@drawable/ic_baseline_location_on_24"
-            android:drawablePadding="10dp"/>
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/text_black"
+            app:errorEnabled="true"
+            app:hintTextColor="@color/text_black"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:singleLine="true"
+                android:lines="1"
+                android:drawableStart="@drawable/ic_baseline_location_on_24"
+                android:hint="Choose Location"
+                android:drawablePadding="10dp"
+                android:imeOptions="actionNext"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
         <TextView
@@ -137,11 +184,11 @@
             android:layout_height="wrap_content"
             android:text="Level of Polution"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_location"
+            app:layout_constraintTop_toBottomOf="@id/til_location"
             android:textSize="16sp"
             android:textColor="@color/text_black"
             android:fontFamily="@font/roboto_bold"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="30dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -175,7 +222,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_change_pass"
+            android:id="@+id/btn_send_report"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -188,10 +235,22 @@
             android:textAllCaps="false"
             android:textSize="16sp"
             app:cornerRadius="15dp"
-            android:backgroundTint="@color/blue_700"
+            android:backgroundTint="@color/green_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/til_level_polution" />
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/green_primary"
+            android:progressTint="@color/green_primary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_photo" />
 
 
 

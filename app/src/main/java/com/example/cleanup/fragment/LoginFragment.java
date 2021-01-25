@@ -12,11 +12,9 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.cleanup.LoginActivity;
 import com.example.cleanup.MainActivity;
 import com.example.cleanup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
