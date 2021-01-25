@@ -3,6 +3,7 @@ package com.example.cleanup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.cardview.widget.CardView;
 public class ChooseReportActivity extends AppCompatActivity {
 
     private CardView cardCurrent, cardNotCurrent;
+    ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class ChooseReportActivity extends AppCompatActivity {
 
         cardCurrent = findViewById(R.id.card_currently);
         cardNotCurrent = findViewById(R.id.card_not_at_location);
+        btnBack = findViewById(R.id.ic_back);
 
         cardCurrent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +37,13 @@ public class ChooseReportActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in = new Intent(ChooseReportActivity.this, ReportNotCurrentActivity.class);
                 startActivity(in);
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 

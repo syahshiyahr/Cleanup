@@ -19,6 +19,7 @@ import com.example.cleanup.R;
 import com.example.cleanup.adapter.CardViewReportsAdapter;
 import com.example.cleanup.model.Report;
 import com.example.cleanup.ui.home.HomeFragment;
+import com.example.cleanup.ui.profile.ProfileFragment;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ReportFragment extends Fragment {
     private RecyclerView recyclerView;
+    String getPosition;
     DatabaseReference ref, refUid;
     private FirebaseRecyclerOptions<Report> options;
     //private FirebaseRecyclerAdapter<Report, MyViewHolder> adapter;
@@ -70,9 +72,13 @@ public class ReportFragment extends Fragment {
             btnBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Fragment fragment = new HomeFragment();
-                    getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
-
+                    if (getPosition.equals("home")) {
+                        Fragment fragment = new HomeFragment();
+                        getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
+                    }else if(getPosition.equals("profile")){
+                        Fragment fragment = new ProfileFragment();
+                        getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
+                    }
                 }
             });
 
@@ -90,5 +96,15 @@ public class ReportFragment extends Fragment {
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            String position = bundle.getString("EXTRA_NAME", "home");
+            getPosition = position;
+        }
     }
 }

@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,12 @@ import android.widget.Toast;
 
 import com.example.cleanup.LoginActivity;
 import com.example.cleanup.R;
+import com.example.cleanup.ReportCurrentActivity;
+import com.example.cleanup.SuccessActivity;
+import com.example.cleanup.ui.home.CleanOrNotFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,6 +32,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class RegisterFragment extends Fragment implements View.OnClickListener {
     private FirebaseAuth auth;
@@ -100,21 +110,33 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //jika gagal register do something
                         if (task.isSuccessful()){
-                            LoginFragment mLoginFragment = new LoginFragment();
-                            FragmentManager mFragmentManager = getFragmentManager();
-                            if (mFragmentManager != null) {
-                                mFragmentManager
-                                        .beginTransaction()
-                                        .replace(R.id.frame_container, mLoginFragment, LoginFragment.class.getSimpleName())
-                                        .addToBackStack(null)
-                                        .commit();
-                            }
+                            HashMap<String, Object> map = new HashMap<>();
+                            map.put("name", name);
+                            map.put("email", email);
+                            FirebaseDatabase.getInstance().getReference().child("users").child(auth.getUid()).setValue(map)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
 
-                            Toast.makeText(getContext(),
-                                    "Login first",
-                                    Toast.LENGTH_LONG).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                }
+                            }).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    FirebaseAuth.getInstance().signOut();
+                                    Fragment fragment = new LoginFragment();
+                                    getFragmentManager().beginTransaction().replace(R.id.frame_container, fragment, fragment.getClass().getSimpleName()).commit();
+
+                                    Toast.makeText(getContext(),
+                                            "Login first",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            });
+
                         }else {
-
                             Toast.makeText(getContext(),
                                     "Failed Registration: "+ task.getException().getMessage(),
                                     Toast.LENGTH_LONG).show();

@@ -32,7 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeFragment extends Fragment {
     Button btnReports, btnVisited;
     TextView seeAll;
-    CardView nearBeaches, cleanBeaches;
+    CardView nearBeaches, cleanBeaches, cleanUpDrives;
     DatabaseReference ref, refUpcoming;
     UpcomingHomeAdapter adapter;
     String userId;
@@ -57,6 +57,7 @@ public class HomeFragment extends Fragment {
         nearBeaches = view.findViewById(R.id.card_near);
         seeAll = view.findViewById(R.id.tv_see_all);
         cleanBeaches = view.findViewById(R.id.card_clean);
+        cleanUpDrives = view.findViewById(R.id.card_upcoming);
 
         ref = FirebaseDatabase.getInstance().getReference().child("report");
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -78,13 +79,32 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        cleanUpDrives.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new UpcomingFragment();
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
+
+            }
+        });
+
 
         btnVisited.setText(Html.fromHtml("<font color='#FFE27D'><b>" + 0 +"</b></font>" + "<font color='#FFFFFF'> Visited Beach</font>"));
+        btnVisited.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new VisitedBeachFragment();
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
 
+            }
+        });
         btnReports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new ReportFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("EXTRA_NAME", "home");
+                fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
 
             }
