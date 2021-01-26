@@ -134,16 +134,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener  {
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if(user != null){
-            Intent intent = new Intent(getContext(), MainActivity.class);
-            startActivity(intent);
-            requireActivity().finish();
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        if(user != null){
+//            Intent intent = new Intent(getContext(), MainActivity.class);
+//            startActivity(intent);
+//            requireActivity().finish();
+//        }
+//    }
 }

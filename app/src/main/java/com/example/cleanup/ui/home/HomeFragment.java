@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cleanup.R;
+import com.example.cleanup.RewardFragment;
 import com.example.cleanup.adapter.CardViewReportsAdapter;
 import com.example.cleanup.adapter.UpcomingHomeAdapter;
 import com.example.cleanup.model.Report;
@@ -31,7 +32,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
-    Button btnReports, btnVisited;
+    Button btnReports, btnVisited, point;
     TextView seeAll;
     CardView nearBeaches, cleanBeaches, cleanUpDrives;
     DatabaseReference ref, refUpcoming;
@@ -61,6 +62,7 @@ public class HomeFragment extends Fragment {
         cleanBeaches = view.findViewById(R.id.card_clean);
         cleanUpDrives = view.findViewById(R.id.card_upcoming);
         statistic = view.findViewById(R.id.statistic_layout);
+        point = view.findViewById(R.id.btn_reward);
 
         ref = FirebaseDatabase.getInstance().getReference().child("report");
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -145,6 +147,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Fragment fragment = new StatisticFragment();
                 getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
+            }
+        });
+
+        point.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new RewardFragment();
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
+
             }
         });
 
