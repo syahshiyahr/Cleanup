@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment {
     String userId;
     int size = 0;
     private RecyclerView recyclerView;
+    LinearLayout statistic;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -58,6 +60,7 @@ public class HomeFragment extends Fragment {
         seeAll = view.findViewById(R.id.tv_see_all);
         cleanBeaches = view.findViewById(R.id.card_clean);
         cleanUpDrives = view.findViewById(R.id.card_upcoming);
+        statistic = view.findViewById(R.id.statistic_layout);
 
         ref = FirebaseDatabase.getInstance().getReference().child("report");
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -134,6 +137,14 @@ public class HomeFragment extends Fragment {
                 Fragment fragment = new CleanOrNotFragment();
                 getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
 
+            }
+        });
+
+        statistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new StatisticFragment();
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
             }
         });
 

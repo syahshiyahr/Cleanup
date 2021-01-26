@@ -27,6 +27,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_reward"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="2500"
+            android:textColor="#00AA95"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/icon_leaf"
+            app:iconTint="@null"
+            android:backgroundTint="#FFE27D"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="30dp"/>
+
         <TextView
             android:id="@+id/tv_desc_home"
             android:layout_width="match_parent"
@@ -61,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:text="10 Visited beach"
+                android:text="0 Visited beach"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:textSize="14sp"
@@ -272,6 +290,7 @@
                 app:layout_constraintTop_toBottomOf="@id/rv_upcoming_home" />
 
             <LinearLayout
+                android:id="@+id/statistic_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
