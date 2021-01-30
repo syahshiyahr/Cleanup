@@ -14,15 +14,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.cleanup.R;
+import com.example.cleanup.adapter.CleanAdapter;
 import com.example.cleanup.adapter.NearAdapter;
 import com.example.cleanup.model.Beaches;
+import com.example.cleanup.model.Clean;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DirtyFragment extends Fragment {
     DatabaseReference ref;
-    NearAdapter adapter;
+    CleanAdapter adapter;
     private RecyclerView recyclerView;
 
     @Override
@@ -35,18 +37,18 @@ public class DirtyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ref = FirebaseDatabase.getInstance().getReference().child("nearBeaches");
+        ref = FirebaseDatabase.getInstance().getReference().child("dirtyBeaches");
 
-        recyclerView = view.findViewById(R.id.rv_near_beaches);
+        recyclerView = view.findViewById(R.id.rv_dirty_beaches);
         //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<Beaches> options = new FirebaseRecyclerOptions.Builder<Beaches>()
-                .setQuery(ref, Beaches.class)
+        FirebaseRecyclerOptions<Clean> options = new FirebaseRecyclerOptions.Builder<Clean>()
+                .setQuery(ref, Clean.class)
                 .build();
 
 
-        adapter = new NearAdapter(options);
+        adapter = new CleanAdapter(options);
         recyclerView.setAdapter(adapter);
     }
 

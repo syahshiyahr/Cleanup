@@ -59,7 +59,7 @@ public class UpcomingFragment extends Fragment {
                 .setQuery(refUpcoming, Upcoming.class)
                 .build();
 
-        adapter = new UpcomingAdapter(options);
+        adapter = new UpcomingAdapter(getContext(), options);
         recyclerView.setAdapter(adapter);
     }
 

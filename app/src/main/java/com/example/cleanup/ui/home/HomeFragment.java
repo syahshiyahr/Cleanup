@@ -169,7 +169,7 @@ public class HomeFragment extends Fragment {
                 .setQuery(refUpcoming, Upcoming.class)
                 .build();
 
-        adapter = new UpcomingHomeAdapter(options);
+        adapter = new UpcomingHomeAdapter(getContext(), options);
         recyclerView.setAdapter(adapter);
     }
 
