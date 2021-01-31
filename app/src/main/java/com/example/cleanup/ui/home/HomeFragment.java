@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeFragment extends Fragment {
     Button btnReports, btnVisited, point;
     TextView seeAll;
-    CardView nearBeaches, cleanBeaches, cleanUpDrives;
+    CardView nearBeaches, cleanBeaches, rewards;
     DatabaseReference ref, refUpcoming;
     UpcomingHomeAdapter adapter;
     String userId;
@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
         nearBeaches = view.findViewById(R.id.card_near);
         seeAll = view.findViewById(R.id.tv_see_all);
         cleanBeaches = view.findViewById(R.id.card_clean);
-        cleanUpDrives = view.findViewById(R.id.card_upcoming);
+        rewards = view.findViewById(R.id.card_rewards);
         statistic = view.findViewById(R.id.statistic_layout);
         point = view.findViewById(R.id.btn_reward);
 
@@ -84,10 +84,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        cleanUpDrives.setOnClickListener(new View.OnClickListener() {
+        rewards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new UpcomingFragment();
+                Fragment fragment = new RewardFragment();
                 getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).commit();
 
             }

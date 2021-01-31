@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="2500"
+            android:text="200"
             android:textColor="#00AA95"
             android:textAllCaps="false"
             android:textSize="14sp"
@@ -157,43 +157,6 @@
 
             <!--row 2 column 1-->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_upcoming"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@color/white"
-                app:cardCornerRadius="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/ic_chat"
-                        android:layout_width="43dp"
-                        android:layout_height="43dp"
-                        android:background="@drawable/noun_garbage_truck"
-                        android:padding="15dp"
-                        android:scaleType="fitCenter"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:id="@+id/tv_chat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Cleanup Drives"
-                        android:gravity="center"
-                        android:textColor="@color/text_black"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!--row 3 column 1-->
-            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_near"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -225,6 +188,44 @@
                         android:text="Near Beach"
                         android:textColor="@color/text_black"
                         android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!--row 3 column 1-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_rewards"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/ic_chat"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/reward"
+                        android:padding="15dp"
+                        android:scaleType="fitCenter"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tv_chat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Rewards"
+                        android:gravity="center"
+                        android:textColor="@color/text_black"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

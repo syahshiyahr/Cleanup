@@ -4,7 +4,7 @@ public class PointsHistory {
     String status;
     String name;
     String timestamp;
-    String point;
+    Integer points;
 
     public String getStatus() {
         return status;
@@ -30,11 +30,11 @@ public class PointsHistory {
         this.timestamp = timestamp;
     }
 
-    public String getPoint() {
-        return point;
+    public Integer getPoints() {
+        return points;
     }
 
-    public void setPoint(String point) {
-        this.point = point;
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 }
